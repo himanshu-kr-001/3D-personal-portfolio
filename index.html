@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Himanshu Kumar | Cybersecurity Portfolio</title>
+  <meta name="description" content="Himanshu Kumar — B.Tech CSE (Cybersecurity) student portfolio. Skills in network security, threat analysis, secure coding, and vulnerability assessment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-grid {
+      display: block;
+    }
+    
+    .hero-left {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-left {
+        padding: 4rem 2rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="tap-magic" id="tapMagic">
+    <div class="tap-container">
+      <div class="tap-text">CLICK HERE</div>
+      <div class="tap-subtitle">Visit My Portfolio</div>
+      <div class="tap-pulse"></div>
+    </div>
+  </div>
+  
+  <div class="loading-screen" id="loadingScreen" style="display: none;">
+    <div class="loading-container">
+      <div class="loading-circle">
+        <div class="loading-ring"></div>
+        <div class="loading-ring"></div>
+        <div class="loading-ring"></div>
+        <div class="loading-percentage" id="loadingPercentage">0%</div>
+      </div>
+      <div class="loading-text">Initializing Security System...</div>
+      <div class="loading-status" id="loadingStatus">Scanning portfolio...</div>
+    </div>
+    <audio id="loadingAudio" preload="auto" loop>
+      <source src="audio/Loading effect - Wilfred Productions.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+  <div class="drive-gate" id="driveGate" aria-hidden="true">
+  </div>
+      
+    
+  <div class="welcome" id="welcome" aria-hidden="true">
+    <div class="welcome-inner">
+      <div class="welcome-kicker">Welcome</div>
+      <div class="welcome-text" id="welcomeText">Hello</div>
+    </div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <header class="header" id="top">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark">HK</span>
+        <span class="brand-text">Himanshu Kumar</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#certifications">Certifications</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Connect</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="header-photo-container" id="headerPhotoContainer" onclick="togglePhotoAlbum()">
+    <img src="photo/himanshu.jpeg" alt="Himanshu Kumar" class="header-photo">
+  </div>
+
+  <div class="cert-view" id="certView">
+    <div class="cert-backdrop" id="certBackdrop"></div>
+    <div class="cert-container">
+      <div class="cert-header">
+        <h3>Certificate</h3>
+        <button class="cert-close" id="certClose">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="cert-content">
+        <iframe id="certFrame" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-album-view" id="photoAlbumView">
+    <div class="album-backdrop" id="albumBackdrop"></div>
+    <div class="album-container">
+      <div class="album-header">
+        <h3>Photo Gallery</h3>
+        <button class="album-close" id="albumClose">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="album-content">
+        <div class="photo-gallery">
+          <div class="gallery-item">
+            <img src="photo/himanshu.jpeg" alt="Himanshu Kumar" class="gallery-photo" onclick="openPhotoInNewTab('photo/himanshu.jpeg')">
+            <div class="photo-overlay">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <!-- Add more photos here in future -->
+          <!-- 
+          <div class="gallery-item">
+            <img src="photo/photo2.jpg" alt="Photo 2" class="gallery-photo" onclick="openPhotoInNewTab('photo/photo2.jpg')">
+            <div class="photo-overlay">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          -->
+        </div>
+        
+        <div class="photo-info">
+          <h4>Himanshu Kumar</h4>
+          <p>Cybersecurity Professional</p>
+          <div class="photo-meta">
+            <span><i class="fa-solid fa-calendar"></i> 2024</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Portfolio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero section" aria-label="Intro">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="chip">
+              <span class="dot"></span>
+              <span>B.Tech CSE • Cybersecurity</span>
+            </div>
+
+            <h1 class="hero-title">
+              Securing systems.
+              <span class="gradient">Detecting threats.</span>
+              Building with discipline.
+            </h1>
+
+            <p class="hero-subtitle">
+              I'm <strong>Himanshu Kumar</strong>, a motivated B.Tech Computer Science Engineering student specializing in Cybersecurity.
+              I focus on network security fundamentals, threat analysis, vulnerability assessment, and secure coding.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">
+                <i class="fa-solid fa-shield-halved"></i>
+                View Projects
+              </a>
+              <a class="btn ghost" href="#contact">
+                <i class="fa-regular fa-paper-plane"></i>
+                Contact
+              </a>
+            </div>
+
+          <div class="social-row" aria-label="Social links">
+            <a class="social" href="https://www.linkedin.com/in/himanshu-kumar-93544a339" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a class="social" href="mailto:hk86631@gmail.com">
+              <i class="fa-solid fa-at"></i>
+              <span>Email</span>
+            </a>
+            <a class="social" href="resume/Himanshu_Kumar_Resume.pdf" download="Himanshu_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
+              <span>CV Resume</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="terminal">
+            <div class="terminal-top">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+              <span class="terminal-title">security_scan.sh</span>
+            </div>
+            <div class="terminal-body">
+              <div class="line"><span class="prompt">hk@cyberlab</span>:<span class="path">~</span>$ whoami</div>
+              <div class="line">Himanshu Kumar</div>
+              <div class="line"><span class="prompt">hk@cyberlab</span>:<span class="path">~</span>$ focus --areas</div>
+              <div class="line">network_security • threat_analysis • secure_coding</div>
+              <div class="line"><span class="prompt">hk@cyberlab</span>:<span class="path">~</span>$ tools --list</div>
+              <div class="line">Wireshark • Nmap • Packet Tracer</div>
+              <div class="line"><span class="prompt">hk@cyberlab</span>:<span class="path">~</span>$ status</div>
+              <div class="line"><span class="ok">OK</span> learning • building • improving daily<span class="cursor">▋</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">About</h2>
+          <p class="section-kicker">Cybersecurity mindset. Engineering discipline.</p>
+        </div>
+
+        <div class="card about-card">
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Motivated B.Tech CSE student specializing in Cybersecurity, with strong fundamentals in network security, threat analysis, and secure coding.
+                Skilled in vulnerability assessment, risk analysis, and problem-solving.
+              </p>
+
+              <div class="facts">
+                <div class="fact">
+                  <span class="fact-label">Name</span>
+                  <span class="fact-value">Himanshu Kumar</span>
+                </div>
+                <div class="fact">
+                  <span class="fact-label">Location</span>
+                  <span class="fact-value">Kaimur, Bihar, India</span>
+                </div>
+                <div class="fact">
+                  <span class="fact-label">Specialization</span>
+                  <span class="fact-value">Cybersecurity</span>
+                </div>
+                <div class="fact">
+                  <span class="fact-label">LinkedIn</span>
+                  <a class="fact-value" href="https://www.linkedin.com/in/himanshu-kumar-93544a339" target="_blank" rel="noreferrer">Profile</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-badges" aria-label="Highlights">
+              <div class="badge-card">
+                <i class="fa-solid fa-network-wired"></i>
+                <div>
+                  <div class="badge-title">Networking</div>
+                  <div class="badge-sub">OSI/TCP-IP • Subnetting</div>
+                </div>
+              </div>
+              <div class="badge-card">
+                <i class="fa-solid fa-user-shield"></i>
+                <div>
+                  <div class="badge-title">Security</div>
+                  <div class="badge-sub">ACLs • NAT • VPN basics</div>
+                </div>
+              </div>
+              <div class="badge-card">
+                <i class="fa-solid fa-bug"></i>
+                <div>
+                  <div class="badge-title">Analysis</div>
+                  <div class="badge-sub">Threats • Risk • Alerts</div>
+                </div>
+              </div>
+              <div class="badge-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <div class="badge-title">Secure Coding</div>
+                  <div class="badge-sub">C • Python • Java</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-kicker">Core capabilities with a security-first approach.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-sitemap"></i> Networking</div>
+            <p class="muted">OSI & TCP/IP Models, Subnetting, DNS, DHCP, LAN/WAN</p>
+            <div class="skill" data-level="78">
+              <div class="skill-top"><span>Networking Fundamentals</span><span class="pct">78%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-route"></i> Routing & Switching</div>
+            <p class="muted">Cisco IOS, VLANs, STP, Static Routing</p>
+            <div class="skill" data-level="72">
+              <div class="skill-top"><span>Routing & Switching</span><span class="pct">72%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-shield-virus"></i> Network Security</div>
+            <p class="muted">ACLs, NAT/PAT, VPN Fundamentals</p>
+            <div class="skill" data-level="70">
+              <div class="skill-top"><span>Network Security</span><span class="pct">70%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-toolbox"></i> Tools</div>
+            <p class="muted">Cisco Packet Tracer, Wireshark (Basic), Nmap (Basic)</p>
+            <div class="skill" data-level="68">
+              <div class="skill-top"><span>Security Tooling</span><span class="pct">68%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-terminal"></i> Programming</div>
+            <p class="muted">C, Python, HTML, CSS, Java</p>
+            <div class="skill" data-level="74">
+              <div class="skill-top"><span>Programming</span><span class="pct">74%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><i class="fa-solid fa-desktop"></i> Operating Systems</div>
+            <p class="muted">Windows, Linux, macOS</p>
+            <div class="skill" data-level="76">
+              <div class="skill-top"><span>Operating Systems</span><span class="pct">76%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card languages-card">
+          <div class="card-title"><i class="fa-solid fa-language"></i> Languages</div>
+          <div class="pill-row">
+            <span class="pill">Hindi</span>
+            <span class="pill">English</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Education</h2>
+          <p class="section-kicker">Academic journey and training.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item card">
+            <div class="t-head">
+              <div class="t-title">B.Tech (CSE – Pursuing)</div>
+              <div class="t-sub">Sityog Institute of Technology, Aurangabad, Bihar</div>
+            </div>
+          </div>
+
+          <div class="t-item card">
+            <div class="t-head">
+              <div class="t-title">12th (PCM)</div>
+              <div class="t-sub">Baghel Ucha Vidya Mandir Ghataon, Kaimur, Bihar</div>
+            </div>
+          </div>
+
+          <div class="t-item card">
+            <div class="t-head">
+              <div class="t-title">ADCA</div>
+              <div class="t-sub">Masum Computer Center, Sasaram, Bihar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-kicker">Learning and achievements.</p>
+        </div>
+
+        <div class="cards-3">
+          <article class="card cert" onclick="showCertificate('Python for Absolute Beginners', 'Certification/Python for Absolute Beginners.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+              <div>
+                <h3 class="cert-title">Python for Absolute Beginners</h3>
+                <div class="muted">EC-Council</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert" onclick="showCertificate('Introduction to Dark Web, Anonymity & Cryptocurrency', 'Certification/Introduction to Dark Web, Anonymity & Cryptocurrency.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-solid fa-mask"></i></div>
+              <div>
+                <h3 class="cert-title">Introduction to Dark Web, Anonymity & Cryptocurrency</h3>
+                <div class="muted">EC-Council</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert" onclick="showCertificate('Android Bug Bounty Hunting : Hunt like a RAT', 'Certification/Android Bug Bounty Hunting.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-solid fa-bug"></i></div>
+              <div>
+                <h3 class="cert-title">Android Bug Bounty Hunting : Hunt like a RAT</h3>
+                <div class="muted">EC-Council</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert" onclick="showCertificate('A Practical Introduction to Cloud Computing', 'Certification/A Practical Introduction to Cloud Computing.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-solid fa-cloud"></i></div>
+              <div>
+                <h3 class="cert-title">A Practical Introduction to Cloud Computing</h3>
+                <div class="muted">EC-Council</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert" onclick="showCertificate('HACKSPHERE 2K25', 'Certification/HACKTHON.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div>
+                <h3 class="cert-title">HACKSPHERE 2K25</h3>
+                <div class="muted">Hackathon</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert" onclick="showCertificate('Introduction to Raspberry Pi/IoT & Hardware Projects', 'Certification/Introduction to Raspberry Pi Iot and Hardware projects.pdf')">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-brands fa-raspberry-pi"></i></div>
+              <div>
+                <h3 class="cert-title">Introduction to Raspberry Pi/IoT & Hardware Projects</h3>
+                <div class="muted">EC-Council</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card cert pursuing">
+            <div class="cert-top">
+              <div class="cert-icon"><i class="fa-solid fa-user-secret"></i></div>
+              <div>
+                <h3 class="cert-title">CEH: Certified Ethical Hacker</h3>
+                <div class="muted">Pursuing</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-kicker">Practical work aligned with cybersecurity.</p>
+        </div>
+
+        <div class="cards-2">
+          <article class="card project">
+            <div class="project-head">
+              <h3 class="project-title">Email Spam Detection System</h3>
+              <span class="tag">Security</span>
+            </div>
+            <p class="muted">A basic system concept for filtering malicious or spam emails using rule-based checks and classification workflows.</p>
+            <div class="project-points">
+              <div class="p"><i class="fa-solid fa-filter"></i> Feature extraction & classification pipeline</div>
+              <div class="p"><i class="fa-solid fa-triangle-exclamation"></i> Risk-focused alerts for suspicious patterns</div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-head">
+              <h3 class="project-title">URL Analysis</h3>
+              <span class="tag">Threat Intel</span>
+            </div>
+            <p class="muted">A workflow to check URL structure and indicators that can suggest phishing or malicious behavior.</p>
+            <div class="project-points">
+              <div class="p"><i class="fa-solid fa-link"></i> Heuristic checks for suspicious domains/paths</div>
+              <div class="p"><i class="fa-solid fa-magnifying-glass"></i> Basic IOC logging for future reference</div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-head">
+              <h3 class="project-title">Real-Time Threat Detection</h3>
+              <span class="tag">Monitoring</span>
+            </div>
+            <p class="muted">Conceptual project outline to detect threats in real-time and take immediate action.</p>
+            <div class="project-points">
+              <div class="p"><i class="fa-solid fa-radar"></i> Real-time threat detection</div>
+              <div class="p"><i class="fa-solid fa-bell"></i> User warning alerts</div>
+              <div class="p"><i class="fa-solid fa-database"></i> Threat database</div>
+            </div>
+          </article>
+
+          <article class="card project" onclick="window.open('https://sagarkumar001.netlify.app', '_blank')">
+            <div class="project-head">
+              <h3 class="project-title">Personal Portfolio Project</h3>
+              <span class="tag">Web</span>
+            </div>
+            <p class="muted">A clean, responsive website portfolio and an upcoming terminal-based portfolio variant.</p>
+            <div class="project-points">
+              <div class="p"><i class="fa-solid fa-globe"></i> Website-based portfolio</div>
+              <div class="p"><i class="fa-solid fa-terminal"></i> Terminal-based portfolio (Pursuing)</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-kicker">Let’s connect for collaborations</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <div class="card-title"><i class="fa-solid fa-address-card"></i> Details</div>
+            <div class="contact-lines">
+              <div class="c-line"><i class="fa-solid fa-envelope"></i> <a href="mailto:hk86631@gmail.com">hk86631@gmail.com</a></div>
+              <div class="c-line"><i class="fa-solid fa-phone"></i> <a href="tel:+918709862421">+91-8709862421</a></div>
+              <div class="c-line"><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/himanshu-kumar-93544a339" target="_blank" rel="noreferrer">LinkedIn Profile</a></div>
+              <div class="c-line"><i class="fa-solid fa-location-dot"></i> Kaimur, Bihar, India</div>
+            </div>
+
+            <div class="note">
+              <div class="note-title">Tip</div>
+              <div class="note-body">Use the form to draft a message. It opens your email app with the details filled in.</div>
+            </div>
+          </div>
+
+          <form class="card form" id="contactForm" novalidate>
+            <div class="card-title"><i class="fa-solid fa-paper-plane"></i> Send a message</div>
+
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required minlength="2" />
+              <div class="error" data-error-for="name"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+              <div class="error" data-error-for="email"></div>
+            </div>
+
+           
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message..." required minlength="10"></textarea>
+              <div class="error" data-error-for="message"></div>
+            </div>
+
+            <button class="btn primary" type="submit">
+              <i class="fa-regular fa-paper-plane"></i>
+              Send
+            </button>
+
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">Himanshu Kumar</div>
+        <div class="muted">B.Tech CSE (Cybersecurity) • Kaimur, Bihar, India</div>
+      </div>
+
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-social" aria-label="Social links">
+        <a class="icon-btn" href="https://www.linkedin.com/in/himanshu-kumar-93544a339" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="icon-btn" href="mailto:hk86631@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span class="muted">© <span id="year"></span> Himanshu Kumar. All rights reserved.</span>
+      <a class="muted" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
