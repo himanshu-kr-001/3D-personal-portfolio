@@ -58,7 +58,8 @@ body{
 }
 
 .brand-text {
-  font-weight:700;
+  font-family:'Poppins', sans-serif;
+  font-weight:900;
   letter-spacing:-.02em;
   background:linear-gradient(45deg, 
     rgb(255,0,0), 
@@ -72,15 +73,31 @@ body{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  animation:rgbFlow 3s ease-in-out infinite;
+  font-size:1.8rem;
+  margin-left:1px;
+  animation:typewriterRgb 3s steps(14) 1s infinite normal,
+             rgbFlow 3s linear infinite;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+@keyframes typewriterRgb{
+  0% { width:0; }
+  50% { width:100%; }
+  100% { width:0; }
 }
 
 @keyframes rgbFlow {
-  0% { background-position:0% 50%; }
-  25% { background-position:100% 0%; }
-  50% { background-position:100% 100%; }
-  75% { background-position:0% 100%; }
-  100% { background-position:0% 50%; }
+  0% { background-position:0% 50%; filter: hue-rotate(0deg); }
+  25% { background-position:25% 0%; filter: hue-rotate(90deg); }
+  50% { background-position:50% 50%; filter: hue-rotate(180deg); }
+  75% { background-position:75% 100%; filter: hue-rotate(270deg); }
+  100% { background-position:100% 50%; filter: hue-rotate(360deg); }
+}
+
+@keyframes simpleBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .tap-text{
@@ -1209,20 +1226,9 @@ a:hover{color:var(--cyan)}
 }
 
 .brand-text{
-  animation:neon-blink 2s infinite alternate;
-  text-shadow:0 0 10px #fff,
-               0 0 20px #fff,
-               0 0 30px #fff,
-               0 0 40px #a27cff,
-               0 0 70px #a27cff,
-               0 0 80px #a27cff,
-               0 0 100px #a27cff,
-               0 0 150px #a27cff;
   overflow:hidden;
-  border-right:3px solid #a27cff;
   white-space:nowrap;
-  animation:typewriter 3s steps(14) 1s 1 normal both,
-             neon-blink 2s infinite alternate;
+  animation:typewriter 3s steps(14) 1s 1 normal both;
 }
 
 @keyframes typewriter{
@@ -1276,6 +1282,7 @@ a:hover{color:var(--cyan)}
   border:1px solid rgba(162,124,255,.20);
   background:rgba(255,255,255,.04);
   padding:10px;
+  cursor:pointer;
 }
 .nav-toggle span{
   display:block;
@@ -1311,6 +1318,30 @@ a:hover{color:var(--cyan)}
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
+}
+
+.rgb-blink{
+  background:linear-gradient(45deg, 
+    rgb(255,0,0), 
+    rgb(255,127,0), 
+    rgb(255,255,0), 
+    rgb(0,255,0), 
+    rgb(0,0,255), 
+    rgb(75,0,130), 
+    rgb(148,0,211));
+  background-size:400% 400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:rgbBlink 3s linear infinite;
+}
+
+@keyframes rgbBlink {
+  0% { background-position:0% 50%; filter: hue-rotate(0deg); }
+  25% { background-position:25% 0%; filter: hue-rotate(90deg); }
+  50% { background-position:50% 50%; filter: hue-rotate(180deg); }
+  75% { background-position:75% 100%; filter: hue-rotate(270deg); }
+  100% { background-position:100% 50%; filter: hue-rotate(360deg); }
 }
 .hero-subtitle{color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 18px}
 
@@ -1443,7 +1474,7 @@ a:hover{color:var(--cyan)}
 .cert.pursuing{border-color:rgba(77,255,159,.22)}
 
 .cards-2{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px}
-.project{transition:transform .2s ease, border-color .2s ease, background .2s ease}
+.project{transition:transform .2s ease, border-color .2s ease, background .2s ease; cursor:pointer;}
 .project:hover{transform:translateY(-2px); border-color:rgba(72,183,255,.22); background:rgba(255,255,255,.06)}
 .project-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
 .project-title{margin:0; font-size:18px; letter-spacing:-.01em}
